@@ -2,7 +2,7 @@
 //  U13AppDelegate.m
 //  U13Log
 //
-//  Created by Chris Wright on 13-02-18.
+//  Created by Brane on 13-02-18.
 //  Copyright (c) 2013 Universe 13. All rights reserved.
 //
 
@@ -16,6 +16,9 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    
+    LOG_D(@"Hello world!");
+    
     return YES;
 }
 

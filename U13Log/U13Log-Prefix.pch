@@ -2,6 +2,8 @@
 // Prefix header for all source files of the 'U13Log' target in the 'U13Log' project
 //
 
+#import "U13Log.h"
+
 #import <Availability.h>
 
 #ifndef __IPHONE_3_0

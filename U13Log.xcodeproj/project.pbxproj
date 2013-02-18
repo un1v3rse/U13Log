@@ -21,6 +21,12 @@
 		83F5A34116D2AD7500A63515 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83F5A32216D2AD7500A63515 /* Foundation.framework */; };
 		83F5A34916D2AD7500A63515 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 83F5A34716D2AD7500A63515 /* InfoPlist.strings */; };
 		83F5A34C16D2AD7500A63515 /* U13LogTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F5A34B16D2AD7500A63515 /* U13LogTests.m */; };
+		83F5A35C16D2ADA900A63515 /* U13DebugBreak.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F5A35616D2ADA900A63515 /* U13DebugBreak.m */; };
+		83F5A35D16D2ADA900A63515 /* U13DebugBreak.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F5A35616D2ADA900A63515 /* U13DebugBreak.m */; };
+		83F5A35E16D2ADA900A63515 /* U13Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F5A35916D2ADA900A63515 /* U13Log.m */; };
+		83F5A35F16D2ADA900A63515 /* U13Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F5A35916D2ADA900A63515 /* U13Log.m */; };
+		83F5A36016D2ADA900A63515 /* U13Log2File.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F5A35B16D2ADA900A63515 /* U13Log2File.m */; };
+		83F5A36116D2ADA900A63515 /* U13Log2File.m in Sources */ = {isa = PBXBuildFile; fileRef = 83F5A35B16D2ADA900A63515 /* U13Log2File.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +59,13 @@
 		83F5A34816D2AD7500A63515 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		83F5A34A16D2AD7500A63515 /* U13LogTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = U13LogTests.h; sourceTree = "<group>"; };
 		83F5A34B16D2AD7500A63515 /* U13LogTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = U13LogTests.m; sourceTree = "<group>"; };
+		83F5A35516D2ADA900A63515 /* U13DebugBreak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = U13DebugBreak.h; sourceTree = "<group>"; };
+		83F5A35616D2ADA900A63515 /* U13DebugBreak.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = U13DebugBreak.m; sourceTree = "<group>"; };
+		83F5A35716D2ADA900A63515 /* U13Log-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "U13Log-Prefix.pch"; sourceTree = "<group>"; };
+		83F5A35816D2ADA900A63515 /* U13Log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = U13Log.h; sourceTree = "<group>"; };
+		83F5A35916D2ADA900A63515 /* U13Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = U13Log.m; sourceTree = "<group>"; };
+		83F5A35A16D2ADA900A63515 /* U13Log2File.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = U13Log2File.h; sourceTree = "<group>"; };
+		83F5A35B16D2ADA900A63515 /* U13Log2File.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = U13Log2File.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +127,13 @@
 			children = (
 				83F5A32F16D2AD7500A63515 /* U13AppDelegate.h */,
 				83F5A33016D2AD7500A63515 /* U13AppDelegate.m */,
+				83F5A35516D2ADA900A63515 /* U13DebugBreak.h */,
+				83F5A35616D2ADA900A63515 /* U13DebugBreak.m */,
+				83F5A35716D2ADA900A63515 /* U13Log-Prefix.pch */,
+				83F5A35816D2ADA900A63515 /* U13Log.h */,
+				83F5A35916D2ADA900A63515 /* U13Log.m */,
+				83F5A35A16D2ADA900A63515 /* U13Log2File.h */,
+				83F5A35B16D2ADA900A63515 /* U13Log2File.m */,
 				83F5A32716D2AD7500A63515 /* Supporting Files */,
 			);
 			path = U13Log;
@@ -264,6 +284,9 @@
 			files = (
 				83F5A32D16D2AD7500A63515 /* main.m in Sources */,
 				83F5A33116D2AD7500A63515 /* U13AppDelegate.m in Sources */,
+				83F5A35C16D2ADA900A63515 /* U13DebugBreak.m in Sources */,
+				83F5A35E16D2ADA900A63515 /* U13Log.m in Sources */,
+				83F5A36016D2ADA900A63515 /* U13Log2File.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,6 +295,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				83F5A34C16D2AD7500A63515 /* U13LogTests.m in Sources */,
+				83F5A35D16D2ADA900A63515 /* U13DebugBreak.m in Sources */,
+				83F5A35F16D2ADA900A63515 /* U13Log.m in Sources */,
+				83F5A36116D2ADA900A63515 /* U13Log2File.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -395,6 +421,11 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "U13Log/U13Log-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+					"UNIT_TEST=1",
+				);
 				INFOPLIST_FILE = "U13LogTests/U13LogTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
@@ -412,6 +443,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "U13Log/U13Log-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = "UNIT_TEST=1";
 				INFOPLIST_FILE = "U13LogTests/U13LogTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
