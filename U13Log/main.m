@@ -9,9 +9,11 @@
 #import <UIKit/UIKit.h>
 
 #import "U13AppDelegate.h"
+#import "U13Log2File.h"
 
 int main(int argc, char *argv[])
 {
+    [U13Log2File setup];
     @autoreleasepool {
         return UIApplicationMain(argc, argv, nil, NSStringFromClass([U13AppDelegate class]));
     }

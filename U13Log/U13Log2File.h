@@ -21,10 +21,12 @@ typedef void(^U13Log2FileHeaderWriter)();
  
  You should call setup at or near the start of your app in order to effect this.  For example:
  
-    int main(int argc, char *argv[]) {
+    int main(int argc, char *argv[])
+    {
         [U13Log2File setup];
-        int retVal = UIApplicationMain(argc, argv, nil, @"Controller");
-        return retVal;
+        @autoreleasepool {
+            return UIApplicationMain(argc, argv, nil, NSStringFromClass([U13AppDelegate class]));
+        }
     }
 
  

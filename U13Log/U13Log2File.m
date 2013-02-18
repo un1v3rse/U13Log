@@ -8,6 +8,7 @@
 
 #import "U13Log2File.h"
 
+#import "U13DebugBreak.h"
 #import <MessageUI/MFMailComposeViewController.h>
 
 static NSTimeInterval NEXT_ROTATION = 0;
@@ -46,7 +47,10 @@ static U13Log2FileHeaderWriter HEADER_WRITER = nil;
 		prev_path = path;
 	}
     
-	freopen([prev_path fileSystemRepresentation], "a", stderr);
+    // Don't actually redirect the log file if we're debugging
+    if (!AmIBeingDebugged()) {
+        freopen([prev_path fileSystemRepresentation], "a", stderr);
+    }
     
     if (HEADER_WRITER)
         HEADER_WRITER();
