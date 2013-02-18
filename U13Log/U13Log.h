@@ -202,12 +202,6 @@ typedef enum {
 #define LOG_I( msg_ ) [U13Log i:__PRETTY_FUNCTION__ line:__LINE__ msg:msg_]
 #define LOG_IF( fmt_, ... ) [U13Log i:__PRETTY_FUNCTION__ line:__LINE__ msg:[NSString stringWithFormat:fmt_, __VA_ARGS__]]
 
-#define LOG_T_TIME() mach_absolute_time()
-#define LOG_T( start_, msg_ ) [U13Log t:__PRETTY_FUNCTION__ line:__LINE__ msg:msg_ start:start_ cutoff:0]
-#define LOG_TF( start_, fmt_, ... ) [U13Log t:__PRETTY_FUNCTION__ line:__LINE__ msg:[NSString stringWithFormat:fmt_, __VA_ARGS__] start:start_ cutoff:0]
-#define LOG_T_CUTOFF( cutoff_, start_, msg_ ) [U13Log t:__PRETTY_FUNCTION__ line:__LINE__ msg:msg_ start:start_ cutoff:cutoff_]
-#define LOG_TF_CUTOFF( cutoff_, start_, fmt_, ... ) [U13Log t:__PRETTY_FUNCTION__ line:__LINE__ msg:[NSString stringWithFormat:fmt_, __VA_ARGS__] start:start_ cutoff:cutoff_]
-
 #ifdef DEBUG
 #define LOG_D( msg_ ) [U13Log d:__PRETTY_FUNCTION__ line:__LINE__ msg:msg_]
 #define LOG_DF( fmt_, ... ) [U13Log d:__PRETTY_FUNCTION__ line:__LINE__ msg:[NSString stringWithFormat:fmt_, __VA_ARGS__]]
@@ -224,6 +218,7 @@ typedef enum {
 #define LOG_VF( fmt_, ... )
 #endif
 
+
 // Assertions
 #ifdef DEBUG
 #define LOG_A( test_, msg_ ) if (!(test_)) { LOG_E( msg_ ); }
@@ -232,6 +227,16 @@ typedef enum {
 #define LOG_A( test_, msg_ )
 #define LOG_AF( test_, fmt_, ... )
 #endif
+
+
+// Timing
+#define LOG_T_UNITS U13LOG_T_UNITS
+#define LOG_T_TIME() mach_absolute_time()
+#define LOG_T( start_, msg_ ) [U13Log t:__PRETTY_FUNCTION__ line:__LINE__ msg:msg_ start:start_ cutoff:0]
+#define LOG_TF( start_, fmt_, ... ) [U13Log t:__PRETTY_FUNCTION__ line:__LINE__ msg:[NSString stringWithFormat:fmt_, __VA_ARGS__] start:start_ cutoff:0]
+#define LOG_T_CUTOFF( cutoff_, start_, msg_ ) [U13Log t:__PRETTY_FUNCTION__ line:__LINE__ msg:msg_ start:start_ cutoff:cutoff_]
+#define LOG_TF_CUTOFF( cutoff_, start_, fmt_, ... ) [U13Log t:__PRETTY_FUNCTION__ line:__LINE__ msg:[NSString stringWithFormat:fmt_, __VA_ARGS__] start:start_ cutoff:cutoff_]
+
 
 // Code expiration policy
 #ifdef DEBUG

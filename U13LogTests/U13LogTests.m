@@ -58,4 +58,12 @@
     
 }
 
+- (void)testTiming {
+    LOG_T_UNITS start = LOG_T_TIME();
+    
+    // do some time-intensive process
+    
+    LOG_T(start, @"Meme catalogue complete");
+}
+
 @end

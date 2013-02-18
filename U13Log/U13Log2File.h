@@ -23,7 +23,9 @@ typedef void(^U13Log2FileHeaderWriter)();
  
     int main(int argc, char *argv[])
     {
-        [U13Log2File setup];
+        @autoreleasepool {
+            [U13Log2File setup];
+        }
         @autoreleasepool {
             return UIApplicationMain(argc, argv, nil, NSStringFromClass([U13AppDelegate class]));
         }

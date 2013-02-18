@@ -13,7 +13,11 @@
 
 int main(int argc, char *argv[])
 {
-    [U13Log2File setup];
+    // this is what you add for file-based logging
+    @autoreleasepool {
+        [U13Log2File setup];
+    }
+    
     @autoreleasepool {
         return UIApplicationMain(argc, argv, nil, NSStringFromClass([U13AppDelegate class]));
     }
