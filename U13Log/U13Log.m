@@ -22,7 +22,7 @@ static UI13LogWillLogHandler WILL_LOG_HANDLER = nil;
 
 
 #ifdef UNIT_TEST
-static NSString *LAST_LOGGED_MESSAGE = nil;
+static NSString *TEST_LAST_LOGGED_MESSAGE = nil;
 #endif // UNIT_TEST
 
 /** Singleton log
@@ -74,7 +74,7 @@ static NSString *LAST_LOGGED_MESSAGE = nil;
 		NSLog( @"%@ %s:%d: %@", LOG_LEVEL_ABBR[level], fn, line, msg );
         
 #ifdef UNIT_TEST
-        LAST_LOGGED_MESSAGE = msg;
+        TEST_LAST_LOGGED_MESSAGE = msg;
 #endif // UNIT_TEST
 	}
 	
@@ -166,8 +166,8 @@ static NSString *LAST_LOGGED_MESSAGE = nil;
 }
 
 #ifdef UNIT_TEST
-+ (NSString *)lastLoggedMessage {
-    return LAST_LOGGED_MESSAGE;
++ (NSString *)testLastLoggedMessage {
+    return TEST_LAST_LOGGED_MESSAGE;
 }
 #endif // UNIT_TEST
 

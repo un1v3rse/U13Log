@@ -24,9 +24,9 @@
     [super tearDown];
 }
 
-- (void)testFormatting {
+- (void)testNSLogCrashOnInvalidFormatString {
     // if this ever works, I would very much like to ditch the LOG_*F variants, but for now I'll stick with not crashing thank you very much
-    [NSString stringWithFormat:@"%@"];
+    //NSLog(@"%@");
 }
 
 - (void)testLogLevels
@@ -38,7 +38,7 @@
     for (int level = U13LOG_LEVEL_VERBOSE; level < U13LOG_LEVEL_COUNT; ++level) {
         NSString *test = [U13Log nameForLevel:level];
         [U13Log log:level fn:__PRETTY_FUNCTION__ line:__LINE__ msg:test];
-        NSString *found = [U13Log lastLoggedMessage];
+        NSString *found = [U13Log testLastLoggedMessage];
         if ([found hasSuffix:test])
             STAssertTrue(level == U13LOG_LEVEL_ERROR, @"Should not have a log entry for anything but error, had one for %@", test);
         else 
@@ -52,7 +52,7 @@
     for (int level = U13LOG_LEVEL_VERBOSE; level < U13LOG_LEVEL_COUNT; ++level) {
         NSString *test = [U13Log nameForLevel:level];
         [U13Log log:level fn:__PRETTY_FUNCTION__ line:__LINE__ msg:test];
-        NSString *found = [U13Log lastLoggedMessage];
+        NSString *found = [U13Log testLastLoggedMessage];
         STAssertTrue([found isEqualToString:test], @"Expected %@ but got %@", test, found);
     }
     
