@@ -11,12 +11,12 @@ Features:
 - simple code expiry
 - log EVERYTHING (including normal NSLog calls) to a rotating set of files (optional)
 
-More information in the source-level documentation.
+More information in the source-level documentation.  See Documentation below to generate AppleDocs if you prefer.
 
 
 ## Why Yet ANOTHER Logger?
 
-I have a large ego.  I also wanted to play around with GitHub before I post something more substantial... stay tuned.
+I have a large ego. :)  I also wanted to play around with GitHub before I post something more substantial... stay tuned.
 
 But also, there were drawbacks to all of the frameworks I've looked at:
 
@@ -121,5 +121,14 @@ Mark some code for expiry (the debugger will break here when the date is past):
     LOG_XPIRE_ON( @"2014-02-14", @"Happy Valentine's day, clean out this code it's obsolete now" );
 
 
+## Documentation
+
+Documentation uses appledoc, available [here](https://github.com/tomaz/appledoc)
+
+On your command line, from the root of the project, run:
+
+    ./docs.sh
+
+to generate the docs to a folder named docs.
 
 
