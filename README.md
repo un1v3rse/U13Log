@@ -16,7 +16,7 @@ More information in the source-level documentation.  See Documentation below to 
 
 ## Why Yet ANOTHER Logger?
 
-I have a large ego. :)  I also wanted to play around with GitHub before I post something more substantial... stay tuned.
+Mainly, I wanted to play around with GitHub before I post something more substantial... stay tuned.
 
 But also, there were drawbacks to all of the frameworks I've looked at:
 
@@ -123,7 +123,7 @@ Mark some code for expiry (the debugger will break here when the date is past):
 
 ## Documentation
 
-Documentation uses appledoc, available [here](https://github.com/tomaz/appledoc)
+Documentation requires installation of [appledoc](https://github.com/tomaz/appledoc)
 
 On your command line, from the root of the project, run:
 
