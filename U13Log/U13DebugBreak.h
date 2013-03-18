@@ -11,21 +11,34 @@
 // code based on this reference:
 // http://cocoawithlove.com/2008/03/break-into-debugger.html
 
-#if (TARGET_IPHONE_SIMULATOR) && (defined DEBUG)
 
-bool AmIBeingDebugged (void);
+void U13DebugBreakSetEnabled(int enabled);
+
+#ifdef DEBUG
+
+int AmIBeingDebugged (void);
 
 #if __ppc64__ || __ppc__
+
+#if (TARGET_IPHONE_SIMULATOR)
 #define U13DebugBreak() \
 if(AmIBeingDebugged()) \
 { \
 __asm__("li r0, 20\nsc\nnop\nli r0, 37\nli r4, 2\nsc\nnop\n" \
 : : : "memory","r0","r3","r4" ); \
 }
-#else
-#define U13DebugBreak() if(AmIBeingDebugged()) {__asm__("int $3\n" : : );}
-#endif
-
-#else
+#else // ! TARGET_IPHONE_SIMULATOR, no break
 #define U13DebugBreak()
-#endif
+#endif // TARGET_IPHONE_SIMULATOR
+
+#else // ! __ppc64__ || __ppc__, i.e. OS X
+
+#define U13DebugBreak() if(AmIBeingDebugged()) {__asm__("int $3\n" : : );}
+
+#endif // __ppc64__ || __ppc__
+
+#else // ! DEBUG
+
+#define U13DebugBreak()
+
+#endif // DEBUG

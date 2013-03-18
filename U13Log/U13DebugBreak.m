@@ -14,12 +14,21 @@
 #include <unistd.h>
 #include <sys/sysctl.h>
 
-#if (TARGET_IPHONE_SIMULATOR) && (defined DEBUG)
+static int U13_DEBUG_BREAK_ENABLED = true;
+
+
+void U13DebugBreakSetEnabled(int enabled) {
+    U13_DEBUG_BREAK_ENABLED = enabled;
+}
+
+
+#ifdef DEBUG
+
 
 // code from
 // http://developer.apple.com/library/mac/#qa/qa2004/qa1361.html
 
-bool AmIBeingDebugged(void)
+int AmIBeingDebugged(void)
 // Returns true if the current process is being debugged (either
 // running under the debugger or has a debugger attached post facto).
 {
@@ -27,7 +36,10 @@ bool AmIBeingDebugged(void)
     int                 mib[4];
     struct kinfo_proc   info;
     size_t              size;
-	
+
+	if (!U13_DEBUG_BREAK_ENABLED)
+        return false;
+    
     // Initialize the flags so that, if sysctl fails for some bizarre
     // reason, we get a predictable result.
 	

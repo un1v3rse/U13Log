@@ -8,11 +8,10 @@
 
 #import "U13Log.h"
 
-#import "U13DebugBreak.h"
-
 static const NSTimeInterval XPIRE_FROM_INTERVAL = 365 * 24 * 60 * 60;
 
 static U13LogLevel CURRENT_LOG_LEVEL = LOG_LEVEL_DEFAULT;
+static BOOL ASSERTIONS_ENABLED = YES;
 
 static NSString *LOG_LEVEL_ABBR[LOG_LEVEL_COUNT];
 static NSString *LOG_LEVEL_NAMES[LOG_LEVEL_COUNT];
@@ -60,6 +59,15 @@ static NSString *TEST_LAST_LOGGED_MESSAGE = nil;
     }
     
     return LOG_LEVEL_NAMES[level];
+}
+
+
++ (BOOL)assertionsEnabled {
+    return ASSERTIONS_ENABLED;
+}
+
++ (void)setAssertionsEnabled:(BOOL)enabled {
+    ASSERTIONS_ENABLED = enabled;
 }
 
 
