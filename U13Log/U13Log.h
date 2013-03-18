@@ -93,15 +93,6 @@ typedef enum {
 
 + (NSString *)nameForLevel:(U13LogLevel)level;
 
-+ (BOOL)assertionsEnabled;
-
-/** Turn off/on assertions.
- 
- Primarily for testing without debug breaking constantly.  Still logs the assertion state.
- 
- */
-+ (void)setAssertionsEnabled:(BOOL)enabled;
-
 /** Log an arbitrary log level.
  
  Exposed for testing, should not normally be called directly.
@@ -236,11 +227,9 @@ typedef enum {
 
 
 // Assertions
-#define LOG_ASSERTIONS_ENABLED [U13Log assertionsEnabled]
-#define LOG_SET_ASSERTIONS_ENABLED(enabled) [U13Log setAssertionsEnabled:enabled]
 #ifdef DEBUG
-#define LOG_A( test_, msg_ ) if (!(test_)) { if (LOG_ASSERTIONS_ENABLED) LOG_E( msg_ ); else LOG_D( msg_ ); }
-#define LOG_AF( test_, fmt_, ... ) if (!(test_)) { if (LOG_ASSERTIONS_ENABLED) LOG_EF( fmt_, __VA_ARGS__ ); else LOG_DF( fmt_, __VA_ARGS__ );  }
+#define LOG_A( test_, msg_ ) if (!(test_)) LOG_E( msg_ )
+#define LOG_AF( test_, fmt_, ... ) if (!(test_)) LOG_EF( fmt_, __VA_ARGS__ )
 #else
 #define LOG_A( test_, msg_ )
 #define LOG_AF( test_, fmt_, ... )
