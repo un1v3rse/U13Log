@@ -7,28 +7,29 @@
 //
 
 #import <Foundation/Foundation.h>
+#include <mach/mach_time.h>
 
 typedef void(^UI13LogWillLogHandler)();
 
 typedef uint64_t U13LOG_T_UNITS;
 
 typedef enum {
-	U13LOG_LEVEL_VERBOSE = 0,
-	U13LOG_LEVEL_DEBUG,
-	U13LOG_LEVEL_INFO,
-	U13LOG_LEVEL_PERFORMANCE,
-	U13LOG_LEVEL_WARNING,
-	U13LOG_LEVEL_ERROR,
-    U13LOG_LEVEL_COUNT
+    LOG_LEVEL_VERBOSE = 0,
+	LOG_LEVEL_DEBUG,
+	LOG_LEVEL_INFO,
+	LOG_LEVEL_PERFORMANCE,
+	LOG_LEVEL_WARNING,
+	LOG_LEVEL_ERROR,
+    LOG_LEVEL_COUNT
 } U13LogLevel;
 
 #ifdef UNIT_TEST
-#define U13LOG_LEVEL_DEFAULT U13LOG_LEVEL_DEBUG
+#define LOG_LEVEL_DEFAULT LOG_LEVEL_DEBUG
 #else // ! UNIT_TEST
 #ifdef DEBUG
-#define U13LOG_LEVEL_DEFAULT U13LOG_LEVEL_DEBUG
+#define LOG_LEVEL_DEFAULT LOG_LEVEL_DEBUG
 #else // ! DEBUG
-#define U13LOG_LEVEL_DEFAULT U13LOG_LEVEL_INFO
+#define LOG_LEVEL_DEFAULT LOG_LEVEL_INFO
 #endif // DEBUG
 #endif // UNIT_TEST
 
@@ -191,6 +192,9 @@ typedef enum {
 
 
 @end
+
+#define LOG_LEVEL [U13Log level]
+#define LOG_SET_LEVEL(level) [U13Log setLevel:level]
 
 
 #define LOG_E( msg_ ) [U13Log e:__PRETTY_FUNCTION__ line:__LINE__ msg:msg_]

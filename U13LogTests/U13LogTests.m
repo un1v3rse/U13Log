@@ -33,23 +33,23 @@
 {
     
     // only errors should generate a log entry
-    [U13Log setLevel:U13LOG_LEVEL_ERROR];
+    LOG_SET_LEVEL(LOG_LEVEL_ERROR);
     
-    for (int level = U13LOG_LEVEL_VERBOSE; level < U13LOG_LEVEL_COUNT; ++level) {
+    for (int level = LOG_LEVEL_VERBOSE; level < LOG_LEVEL_COUNT; ++level) {
         NSString *test = [U13Log nameForLevel:level];
         [U13Log log:level fn:__PRETTY_FUNCTION__ line:__LINE__ msg:test];
         NSString *found = [U13Log testLastLoggedMessage];
         if ([found hasSuffix:test])
-            STAssertTrue(level == U13LOG_LEVEL_ERROR, @"Should not have a log entry for anything but error, had one for %@", test);
+            STAssertTrue(level == LOG_LEVEL_ERROR, @"Should not have a log entry for anything but error, had one for %@", test);
         else 
-            STAssertTrue(level != U13LOG_LEVEL_ERROR, @"Error should have had log entry but did not");
+            STAssertTrue(level != LOG_LEVEL_ERROR, @"Error should have had log entry but did not");
     }
     
     
     // all logs should generate log entries now
-    [U13Log setLevel:U13LOG_LEVEL_VERBOSE];
+    [U13Log setLevel:LOG_LEVEL_VERBOSE];
     
-    for (int level = U13LOG_LEVEL_VERBOSE; level < U13LOG_LEVEL_COUNT; ++level) {
+    for (int level = LOG_LEVEL_VERBOSE; level < LOG_LEVEL_COUNT; ++level) {
         NSString *test = [U13Log nameForLevel:level];
         [U13Log log:level fn:__PRETTY_FUNCTION__ line:__LINE__ msg:test];
         NSString *found = [U13Log testLastLoggedMessage];

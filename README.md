@@ -92,6 +92,11 @@ Happy coding!
 
 ## Examples
 
+Set the log level to DEBUG (cuts off logging at DEBUG or more severe):
+
+    LOG_SET_LEVEL(LOG_LEVEL_DEBUG);
+
+
 Log an error (which will break to the debugger when encountered):
 
     LOG_E(@"Should not have hit this");
