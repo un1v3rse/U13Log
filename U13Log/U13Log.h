@@ -97,42 +97,42 @@ typedef enum {
  Exposed for testing, should not normally be called directly.
  
  */
-+ (void)log:(int)level fn:(const char *)fn line:(int)line msg:(NSString *)msg;
++ (void)log:(U13LogLevel)level fn:(const char *)fn line:(int)line msg:(NSString *)msg;
 
 /** Log an error.
  
  Should not normally be called directly, use LOG_E or LOG_EF.
  
  */
-+ (void)e:(const char *)fn line:(NSInteger)line msg:(NSString *)msg;
++ (void)e:(const char *)fn line:(int)line msg:(NSString *)msg;
 
 /** Log a warning.
  
  Should not normally be called directly, use LOG_W or LOG_WF.
  
  */
-+ (void)w:(const char *)fn line:(NSInteger)line msg:(NSString *)msg;
++ (void)w:(const char *)fn line:(int)line msg:(NSString *)msg;
 
 /** Log information.
  
  Should not normally be called directly, use LOG_I or LOG_IF.
  
  */
-+ (void)i:(const char *)fn line:(NSInteger)line msg:(NSString *)msg;
++ (void)i:(const char *)fn line:(int)line msg:(NSString *)msg;
 
 /** Log debug information.
  
  Should not normally be called directly, use LOG_D or LOG_DF.
  
  */
-+ (void)d:(const char *)fn line:(NSInteger)line msg:(NSString *)msg;
++ (void)d:(const char *)fn line:(int)line msg:(NSString *)msg;
 
 /** Log verbose debug information.
  
  Should not normally be called directly, use LOG_V or LOG_VF.
  
  */
-+ (void)v:(const char *)fn line:(NSInteger)line msg:(NSString *)msg;
++ (void)v:(const char *)fn line:(int)line msg:(NSString *)msg;
 
 /** Log a timing.
  
@@ -142,7 +142,7 @@ typedef enum {
  @param cutoff Do not make a log entry if the time is below this threshold.
  
  */
-+ (void)t:(const char *)fn line:(NSInteger)line msg:(NSString *)msg start:(U13LOG_T_UNITS)start cutoff:(U13LOG_T_UNITS)cutoff;
++ (void)t:(const char *)fn line:(int)line msg:(NSString *)msg start:(U13LOG_T_UNITS)start cutoff:(U13LOG_T_UNITS)cutoff;
 
 /** Convert a time interval to our time units.
  

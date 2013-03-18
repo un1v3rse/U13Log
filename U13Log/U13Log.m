@@ -12,7 +12,7 @@
 
 static const NSTimeInterval XPIRE_FROM_INTERVAL = 365 * 24 * 60 * 60;
 
-static int CURRENT_LOG_LEVEL = LOG_LEVEL_DEFAULT;
+static U13LogLevel CURRENT_LOG_LEVEL = LOG_LEVEL_DEFAULT;
 
 static NSString *LOG_LEVEL_ABBR[LOG_LEVEL_COUNT];
 static NSString *LOG_LEVEL_NAMES[LOG_LEVEL_COUNT];
@@ -63,7 +63,7 @@ static NSString *TEST_LAST_LOGGED_MESSAGE = nil;
 }
 
 
-+ (void)log:(int)level fn:(const char *)fn line:(int)line msg:(NSString *)msg {
++ (void)log:(U13LogLevel)level fn:(const char *)fn line:(int)line msg:(NSString *)msg {
 	
 	if (level >= CURRENT_LOG_LEVEL) {
         
@@ -129,7 +129,7 @@ static NSString *TEST_LAST_LOGGED_MESSAGE = nil;
     // Do the maths. We hope that the multiplication doesn't
     // overflow; the price you pay for working in fixed point.
     
-    U13LOG_T_UNITS result = (interval * 1000000000) * sTimebaseInfo.denom / sTimebaseInfo.numer;
+    U13LOG_T_UNITS result = (U13LOG_T_UNITS)((interval * 1000000000) * sTimebaseInfo.denom / sTimebaseInfo.numer);
     
     return result;
 }
